@@ -16,7 +16,7 @@ public class MonsterController
 		System.out.println(Albert);
 		System.out.println("Tyler is hungry. He is going to eat two arms");
 		Albert.setArmCount(Albert.getArmCount() - 2);
-		System.out.println(Albert);
+		System.out.println(Albert + "\n");
 		interactWithMonster(Albert);
 	}
 	private void interactWithMonster(MarshmallowMonster currentMonster)
