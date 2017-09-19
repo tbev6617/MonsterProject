@@ -74,6 +74,9 @@ public class MonsterController
 		{
 			System.out.println(currentMonster.getName() + " is confused by your negative number and eats your eyes instead.");
 		}
-		
+		popup.displayText("THE CAKE IS A LIE\nTHE CAKE IS A LIE\nTHE CAKE IS A LIE");
+		String answer = popup.getResponse("How much cake have you eaten today");
+		System.out.println(answer);
+		popup.displayText(answer);
 	}
 }
