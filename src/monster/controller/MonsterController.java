@@ -21,16 +21,53 @@ public class MonsterController
 	}
 	private void interactWithMonster(MarshmallowMonster currentMonster)
 	{
-		System.out.println(currentMonster.getName() + " wants to know what to eat next");
+		//ARMS eaten
+		System.out.println(currentMonster.getName() + " wants to know what to eat next.");
 		System.out.println(currentMonster.getName() + " suggests arms. He has " + currentMonster.getArmCount() + " arms!");
 		System.out.println("How many do you want to eat?");
 		Scanner input = new Scanner(System.in);
 		int consumed = input.nextInt();
-		currentMonster.setArmCount(currentMonster.getArmCount() - consumed);
-		if (currentMonster.getArmCount() < 0) 
+		
+		if (consumed < 0)
 		{
-			currentMonster.setArmCount(0);
+			System.out.println(currentMonster.getName() + " is confused by your negative number and eats your arms instead.");
 		}
-		System.out.println(currentMonster.getName() + " has " + currentMonster.getArmCount() + " arms now. You are the real monster!");
+		else if (consumed == 0)
+		{
+			System.out.println(currentMonster.getName() + " is sad because you didn't want to eat him. You ungrateful human.");
+		}
+		else if (consumed > currentMonster.getArmCount())
+		{
+			System.out.println("That is impossible. He only has " + currentMonster.getArmCount() + " arms. You greedy human.");
+		}
+		else 
+		{
+			currentMonster.setArmCount(currentMonster.getArmCount() - consumed);
+			System.out.println("He only has " + currentMonster.getArmCount() +  " arms left. You are the real monster.");
+		}
+		
+		//EYES eaten
+		System.out.println("Now eat his eyes. " + currentMonster.getName() + " wants to know how many of his " + currentMonster.getEyeCount() + " eyes you will eat?");
+		consumed = input.nextInt();
+		if (consumed > 0) 
+		{
+			if (currentMonster.getEyeCount() >= consumed) 
+			{
+				currentMonster.setEyeCount(currentMonster.getEyeCount() - consumed);
+				System.out.println(currentMonster.getName() + " has " + currentMonster.getEyeCount() + " eyes left. You are the real monster.");
+			}
+			else 
+			{
+				System.out.println("That is impossible. He only has " + currentMonster.getEyeCount() +  " eyes. You greedy human.");
+			}
+		}
+		else if(consumed == 0)
+		{
+			System.out.println(currentMonster.getName() + " is sad because you didn't want to eat him. You ungrateful human.");
+		}
+		else
+		{
+			System.out.println(currentMonster.getName() + " is confused by your negative number and eats your eyes.");
+		}
 	}
 }
