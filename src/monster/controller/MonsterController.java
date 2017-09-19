@@ -67,7 +67,8 @@ public class MonsterController
 		}
 		else
 		{
-			System.out.println(currentMonster.getName() + " is confused by your negative number and eats your eyes.");
+			System.out.println(currentMonster.getName() + " is confused by your negative number and eats your eyes instead.");
 		}
+		
 	}
 }
