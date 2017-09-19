@@ -11,7 +11,7 @@ public class MarshmallowMonster
 	{
 		//unless we specify values all data members are 0, false, or null!
 	}
-	public MarshmallowMonster(String name, int eyeCount, int armCount, double tentaclAmount, boolean hasBloop)
+	public MarshmallowMonster(String name, int eyeCount, int armCount, double tentacleAmount, boolean hasBloop)
 	{
 		this.name = name;
 		this.eyeCount = eyeCount;
