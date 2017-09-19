@@ -27,7 +27,8 @@ public class MonsterController
 		Scanner input = new Scanner(System.in);
 		int consumed = input.nextInt();
 		currentMonster.setArmCount(currentMonster.getArmCount() - consumed);
-		if (currentMonster.getArmCount() < 0) {
+		if (currentMonster.getArmCount() < 0) 
+		{
 			currentMonster.setArmCount(0);
 		}
 		System.out.println(currentMonster.getName() + " has " + currentMonster.getArmCount() + " arms now. You are the real monster!");
