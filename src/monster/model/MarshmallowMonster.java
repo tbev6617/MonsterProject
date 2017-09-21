@@ -1,5 +1,5 @@
 package monster.model;
-
+//Creates the monsters and their variables
 public class MarshmallowMonster 
 {
 	private String name;

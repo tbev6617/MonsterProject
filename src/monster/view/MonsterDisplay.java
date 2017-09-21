@@ -1,7 +1,7 @@
 package monster.view;
 
 import javax.swing.JOptionPane;
-
+//Displays text on popups
 public class MonsterDisplay 
 {
 	
