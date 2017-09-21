@@ -68,8 +68,12 @@ public class MonsterController
 //		System.out.println("Now eat his eyes. " + currentMonster.getName() + " wants to know how many of his " + currentMonster.getEyeCount() + " eyes you will eat?");
 		popup.displayText("Now eat his eyes. " + currentMonster.getName() + " wants to know how many of his " + currentMonster.getEyeCount() + " eyes you will eat.");
 //		consumed = input.nextInt();
+		consumed = 0;
 		unconverted = popup.getResponse("How many do you want to eat");
-		consumed = Integer.parseInt(unconverted);
+		if(isValidInteger(unconverted))
+		{
+			consumed = Integer.parseInt(unconverted);
+		}
 		if (consumed > 0) 
 		{
 			if (currentMonster.getEyeCount() >= consumed) 
