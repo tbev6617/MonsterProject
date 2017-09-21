@@ -12,9 +12,6 @@ public class MonsterController
 	}
 	public void start() 
 	{
-		MarshmallowMonster sample = new MarshmallowMonster();
-		popup.displayText(sample.toString());
-		
 		MarshmallowMonster Albert = new MarshmallowMonster("Albert", 6, 6, 0, true);
 //		System.out.println(Albert);
 		popup.displayText(Albert.toString());
