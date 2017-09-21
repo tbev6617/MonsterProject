@@ -66,7 +66,7 @@ public class MarshmallowMonster
 	public String toString()
 	{
 		String description = "Hi I am a monster named " + name + "! I have " + eyeCount + " eyes and " + armCount + " arms. ";
-		description += "I also have "+ tentacleAmount + " tentacles and my bloop existence is " + hasBloop;
+		description += "I also have "+ tentacleAmount + " tentacles and my bloop existence is " + hasBloop + ".";
 		return description;
 	}
 }

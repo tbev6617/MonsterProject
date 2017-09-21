@@ -16,7 +16,7 @@ public class MonsterController
 //		System.out.println(Albert);
 		popup.displayText(Albert.toString());
 //		System.out.println("Tyler is hungry. He is going to eat two arms");
-		popup.displayText("Tyler is hungry. He is going to eat two arms");
+		popup.displayText("Tyler is hungry. He is going to eat two arms!");
 		Albert.setArmCount(Albert.getArmCount() - 2);
 //		System.out.println(Albert + "\n");
 		popup.displayText(Albert.toString());
@@ -27,11 +27,11 @@ public class MonsterController
 		//ARMS eaten
 //		System.out.println(currentMonster.getName() + " wants to know what to eat next.");
 //		System.out.println(currentMonster.getName() + " suggests arms. He has " + currentMonster.getArmCount() + " arms!");
-		popup.displayText(currentMonster.getName() + " wants to know what to eat next. He suggests arms, He has " + currentMonster.getArmCount() + " arms!");
+		popup.displayText(currentMonster.getName() + " wants to know what to eat next. He suggests arms, He has " + currentMonster.getArmCount() + " arms.");
 //		System.out.println("How many do you want to eat?");
 //		Scanner input = new Scanner(System.in);
 //		int consumed = input.nextInt();
-		String unconverted = popup.getResponse("How many do you want to eat");
+		String unconverted = popup.getResponse("How many do you want to eat?");
 		int consumed = 0;
 		if (isValidInteger(unconverted)) 
 		{
@@ -66,7 +66,7 @@ public class MonsterController
 		popup.displayText("Now eat his eyes. " + currentMonster.getName() + " wants to know how many of his " + currentMonster.getEyeCount() + " eyes you will eat.");
 //		consumed = input.nextInt();
 		consumed = 0;
-		unconverted = popup.getResponse("How many do you want to eat");
+		unconverted = popup.getResponse("How many do you want to eat?");
 		if(isValidInteger(unconverted))
 		{
 			consumed = Integer.parseInt(unconverted);
@@ -96,8 +96,8 @@ public class MonsterController
 			popup.displayText(currentMonster.getName() + " is confused by your negative number and eats your eyes instead.");
 		}
 		popup.displayText("THE CAKE IS A LIE\nTHE CAKE IS A LIE\nTHE CAKE IS A LIE");
-		String answer = popup.getResponse("How much cake have you eaten today");
-		//System.out.println(answer);
+		String answer = popup.getResponse("How much cake have you eaten today?");
+//		System.out.println(answer);
 		popup.displayText(answer + "!? That is a lot of cake!");
 	}
 	private boolean isValidInteger(String sample) 
@@ -110,7 +110,20 @@ public class MonsterController
 		}
 		catch(NumberFormatException error)
 		{
-			popup.displayText("Only integer values are valid: " + sample + " is not a valid integer");
+			popup.displayText("Only integer values are valid: " + sample + " is not a valid integer.");
+		}
+		return valid;
+	}
+	private boolean isValidDouble(String sample) 
+	{
+		boolean valid = false;
+		try {
+			Double.parseDouble(sample);
+			valid = true;
+		}
+		catch(NumberFormatException error)
+		{
+			popup.displayText("Only double (AKA number) values are valid: " + sample + " is not a valid double.");
 		}
 		return valid;
 	}
