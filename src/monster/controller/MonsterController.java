@@ -13,6 +13,23 @@ public class MonsterController
 	}
 	public void start() 
 	{
+//		for (int i = 1; i <= 100; i++)
+//		{
+//			for(int j = 0; j < i; j++)
+//			{
+//				System.out.println(i);
+//			}
+//		}
+//		for (int i = 100; i > 0; i--)
+//		{
+//			popup.displayText("Click me " + i + " more times to get rid of me");
+//			if (i == 1)
+//			{
+//				i = 100;
+//				popup.displayText("Just kidding! You are back at 100");
+//			}
+//		}
+		
 		MarshmallowMonster Albert = new MarshmallowMonster("Albert", 6, 6, 0, true);
 		popup.displayText(Albert.toString());
 		popup.displayText("Tyler is hungry. He is going to eat two arms!");
@@ -26,11 +43,13 @@ public class MonsterController
 		popup.displayText(currentMonster.getName() + " wants to know what to eat next. He suggests arms, He has " + currentMonster.getArmCount() + " arms.");
 		String unconverted = popup.getResponse("How many do you want to eat?");
 		//Make sure it's an integer
-		int consumed = 0;
-		if (isValidInteger(unconverted)) 
+		while (!isValidInteger(unconverted))
 		{
-			consumed = Integer.parseInt(unconverted);
+			popup.displayText("TRY AGAIN.");
+			unconverted = popup.getResponse("How many arms do you want to eat?!");
 		}
+		int consumed = Integer.parseInt(unconverted);
+		
 		//Give the response based on whether it's negative, 0, too big, or just right
 		if (consumed < 0)
 		{
@@ -55,10 +74,13 @@ public class MonsterController
 		consumed = 0;
 		unconverted = popup.getResponse("How many do you want to eat?");
 		//Make sure it's an integer
-		if(isValidInteger(unconverted))
+		while(!isValidInteger(unconverted))
 		{
-			consumed = Integer.parseInt(unconverted);
+			popup.displayText("TRY AGAIN.");
+			unconverted = popup.getResponse("How many eyes do you want to eat");
 		}
+		consumed = Integer.parseInt(unconverted);
+		
 		//Give the response based on whether it's negative, 0, too big, or just right
 		if (consumed > 0) 
 		{
