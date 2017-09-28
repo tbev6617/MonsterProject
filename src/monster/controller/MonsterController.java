@@ -1,15 +1,19 @@
 package monster.controller;
-import java.util.Scanner;
+//import java.util.Scanner;
 import monster.model.MarshmallowMonster;
 import monster.view.MonsterDisplay;
+import java.util.List;
+import java.util.ArrayList;
 
 public class MonsterController 
 {
 	private MonsterDisplay popup;
+	private List<MarshmallowMonster> monsterList;
 	public MonsterController()
 	{
 		//creates a MonsterDisplay object called popup
 		popup = new MonsterDisplay();
+		monsterList = new ArrayList<MarshmallowMonster>();
 	}
 	public void start() 
 	{
@@ -29,13 +33,37 @@ public class MonsterController
 //				popup.displayText("Just kidding! You are back at 100");
 //			}
 //		}
+		MarshmallowMonster sample = new MarshmallowMonster();
+		popup.displayText(sample.toString());
 		
 		MarshmallowMonster Albert = new MarshmallowMonster("Albert", 6, 6, 0, true);
 		popup.displayText(Albert.toString());
 		popup.displayText("Tyler is hungry. He is going to eat two arms!");
 		Albert.setArmCount(Albert.getArmCount() - 2);
 		popup.displayText(Albert.toString());
+		
+		monsterList.add(Albert);
+		monsterList.add(sample);
+		testList();
 		interactWithMonster(Albert);
+	}
+	private void testList() 
+	{
+		for(int index = 0; index < monsterList.size(); index++)
+		{
+			MarshmallowMonster currentMonster = monsterList.get(index);
+			popup.displayText("Hi my name is " + currentMonster.getName());
+			String newName = popup.getResponse("What should my new name be?");
+			currentMonster.setName(newName);
+			popup.displayText("My name is now " + currentMonster.getName());
+		}
+		for(MarshmallowMonster current : monsterList)
+		{
+			popup.displayText("Hi my name is " + current.getName());
+			String newName = popup.getResponse("What should my new name be");
+			current.setName(newName);
+			popup.displayText("My name is now " + current.getName());
+		}
 	}
 	private void interactWithMonster(MarshmallowMonster currentMonster)
 	{
